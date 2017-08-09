@@ -2,6 +2,7 @@
     "name": "PRChart",
     "identifier": "org.projectrhinestone.sketch.prchart",
     "version": "0.1",
+    "appcast" : "https:\/\/raw.githubusercontent.com\/Elethom\/Sketch-PRChart\/master\/appcast.xml",
     "description": "Draw bar charts and line charts automatically in Sketch.",
     "author": "Elethom Hunter",
     "authorEmail" : "elethomhunter@gmail.com",
