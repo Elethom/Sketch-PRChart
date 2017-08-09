@@ -1,0 +1,39 @@
+{
+    "name": "PRChart",
+    "identifier": "org.projectrhinestone.sketch.prchart",
+    "version": "0.1",
+    "description": "Draw bar charts and line charts automatically in Sketch.",
+    "author": "Elethom Hunter",
+    "authorEmail" : "elethomhunter@gmail.com",
+    "commands": [
+        {
+            "script": "chart.js",
+            "handler": "makeBarChart",
+            "shortcut": "",
+            "name": "Make Bar Chart",
+            "identifier": "makeBarChart"
+        },
+        {
+            "script": "chart.js",
+            "handler": "makeLineChart",
+            "shortcut": "",
+            "name": "Make Line Chart",
+            "identifier": "makeLineChart"
+        },
+        {
+            "script": "chart.js",
+            "handler": "makeFilledLineChart",
+            "shortcut": "",
+            "name": "Make Filled Line Chart",
+            "identifier": "makeFilledLineChart"
+        }
+    ],
+    "menu": {
+        "isRoot": false,
+        "items": [
+            "makeBarChart",
+            "makeLineChart",
+            "makeFilledLineChart"
+        ]
+    }
+}
