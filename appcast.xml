@@ -6,6 +6,17 @@
     <description>Draw bar charts and line charts automatically in Sketch.</description>
     <language>en</language>
     <item>
+      <title>Version 0.1.1</title>
+      <description>
+        <![CDATA[
+          <ul>
+            <li>Add message text to alert windows</li>
+          </ul>
+        ]]>
+      </description>
+      <enclosure url="https://github.com/Elethom/Sketch-PRChart/archive/0.1.1.zip" sparkle:version="0.1.1" />
+    </item>
+    <item>
       <title>Version 0.1</title>
       <description>
         <![CDATA[
