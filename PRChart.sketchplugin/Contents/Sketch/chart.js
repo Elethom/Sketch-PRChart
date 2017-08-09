@@ -2,6 +2,7 @@ var makeBarChart = function(context) {
     var dialog
     var createUI = function() {
         dialog = COSAlertWindow.new()
+        dialog.setMessageText('Make Bar Chart')
         dialog.addTextLabelWithValue('width')
         dialog.addTextFieldWithValue('600')
         dialog.addTextLabelWithValue('height')
@@ -65,6 +66,7 @@ var makeLineChart = function(context) {
     var dialog
     var createUI = function() {
         dialog = COSAlertWindow.new()
+        dialog.setMessageText('Make Line Chart')
         dialog.addTextLabelWithValue('width')
         dialog.addTextFieldWithValue('600')
         dialog.addTextLabelWithValue('height')
@@ -124,6 +126,7 @@ var makeFilledLineChart = function(context) {
     var dialog
     var createUI = function() {
         dialog = COSAlertWindow.new()
+        dialog.setMessageText('Make Filled Line Chart')
         dialog.addTextLabelWithValue('width')
         dialog.addTextFieldWithValue('600')
         dialog.addTextLabelWithValue('height')
