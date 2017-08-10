@@ -14,6 +14,7 @@ var makeBarChart = function(context) {
         dialog.addTextLabelWithValue('column width (optional)')
         dialog.addTextFieldWithValue('')
         dialog.addButtonWithTitle('OK')
+        dialog.addButtonWithTitle('Cancel')
         
         dialog.alert().window().setInitialFirstResponder(dialog.viewAtIndex(1))
         dialog.viewAtIndex(1).setNextKeyView(dialog.viewAtIndex(3))
@@ -57,7 +58,7 @@ var makeBarChart = function(context) {
             context.selection[0].addLayers([rect])
         }
     }
-    if(createUI()) {
+    if (createUI() == 1000) {
         process()
     }
 }
@@ -76,6 +77,7 @@ var makeLineChart = function(context) {
         dialog.addTextLabelWithValue('values (divided by ",")')
         dialog.addTextFieldWithValue('')
         dialog.addButtonWithTitle('OK')
+        dialog.addButtonWithTitle('Cancel')
         
         dialog.alert().window().setInitialFirstResponder(dialog.viewAtIndex(1))
         dialog.viewAtIndex(1).setNextKeyView(dialog.viewAtIndex(3))
@@ -117,7 +119,7 @@ var makeLineChart = function(context) {
         line.setName('Line')
         context.selection[0].addLayers([line])
     }
-    if(createUI()) {
+    if (createUI() == 1000) {
         process()
     }
 }
@@ -136,6 +138,7 @@ var makeFilledLineChart = function(context) {
         dialog.addTextLabelWithValue('values (divided by ",")')
         dialog.addTextFieldWithValue('')
         dialog.addButtonWithTitle('OK')
+        dialog.addButtonWithTitle('Cancel')
         
         dialog.alert().window().setInitialFirstResponder(dialog.viewAtIndex(1))
         dialog.viewAtIndex(1).setNextKeyView(dialog.viewAtIndex(3))
@@ -178,7 +181,7 @@ var makeFilledLineChart = function(context) {
         line.setName('Line')
         context.selection[0].addLayers([line])
     }
-    if(createUI()) {
+    if (createUI() == 1000) {
         process()
     }
 }
