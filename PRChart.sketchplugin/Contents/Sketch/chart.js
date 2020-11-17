@@ -1,4 +1,4 @@
-const { Style, Rectangle, Shape, ShapePath } = require('sketch/dom');
+const { Style, Rectangle, Group, Shape, ShapePath } = require('sketch/dom');
 
 const defaultValues = {
   width: 600,
@@ -12,6 +12,10 @@ const showValueError = () => {
 };
 
 const style = {
+  boundingRect: {
+    fills: [],
+    borders: [],
+  },
   shape: {
     fills: [{
       color: '#0006',
@@ -84,9 +88,21 @@ var makeBarChart = context => {
       columnWidth = width / (count * 2);
     }
 
-    const firstShape = new Shape({
+    const group = new Group({
       name: 'Chart',
       parent: selection,
+      frame: new Rectangle(0, 0, width, height),
+    });
+    new ShapePath({
+      name: 'Bounding Rect',
+      parent: group,
+      frame: new Rectangle(0, 0, width, height),
+      style: style.boundingRect,
+      shapeType: ShapePath.ShapeType.Rectangle,
+    });
+    const shape = new Shape({
+      name: 'Bars',
+      parent: group,
       frame: new Rectangle(0, 0, width, height),
       style: style.shape,
     });
@@ -98,13 +114,13 @@ var makeBarChart = context => {
 
       new ShapePath({
         name: 'Bar',
-        parent: firstShape,
+        parent: shape,
         frame: new Rectangle(x, y, w, h),
         style: style.shape,
         shapeType: ShapePath.ShapeType.Rectangle,
       });
     };
-    firstShape.layers.shift(); // remove default path
+    shape.layers.shift(); // remove default path
   };
 
   if (alert.runModal() === NSAlertFirstButtonReturn) {
@@ -164,13 +180,27 @@ var makeLineChart = context => {
         },
       };
     });
+
+    const group = new Group({
+      name: 'Chart',
+      parent: selection,
+      frame: new Rectangle(0, 0, width, height),
+    });
+    new ShapePath({
+      name: 'Bounding Rect',
+      parent: group,
+      frame: new Rectangle(0, 0, width, height),
+      style: style.boundingRect,
+      shapeType: ShapePath.ShapeType.Rectangle,
+    });
     new ShapePath({
       name: 'Line',
-      parent: selection,
+      parent: group,
       frame: new Rectangle(0, 0, width, height),
       style: style.line,
       shapeType: ShapePath.ShapeType.Custom,
       points,
+      closed: false,
     });
   };
 
@@ -235,9 +265,22 @@ var makeFilledLineChart = context => {
       { point: { x: 1, y: 1 } },
       { point: { x: 0, y: 1 } }
     );
-    new ShapePath({
-      name: 'Line',
+
+    const group = new Group({
+      name: 'Chart',
       parent: selection,
+      frame: new Rectangle(0, 0, width, height),
+    });
+    new ShapePath({
+      name: 'Bounding Rect',
+      parent: group,
+      frame: new Rectangle(0, 0, width, height),
+      style: style.boundingRect,
+      shapeType: ShapePath.ShapeType.Rectangle,
+    });
+    new ShapePath({
+      name: 'Filled Line',
+      parent: group,
       frame: new Rectangle(0, 0, width, height),
       style: style.shape,
       shapeType: ShapePath.ShapeType.Custom,
